@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finanças</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <table class="tabela-list">
+            <thead>
+                <tr>
+                    <th class="titulo-ini">DIA</th>
+                    <th>DESCRIÇÃO</th>
+                    <th class="titulo-end">VALOR</th>
+                </tr>
+            </thead>
+            <tbody id="tabela-corpo">
+                <tr>
+                    <td class="cont-tabela">17/07/2024</td>
+                    <td class="cont-tabela">Pag Menos Ibura</td>
+                    <td class="cont-tabela">R$60,00</td>
+                </tr>
+                <tr>
+                    <td class="cont-tabela">18/07/2024</td>
+                    <td class="cont-tabela">Alphaville</td>
+                    <td class="cont-tabela">R$60,00</td>
+                </tr>
+                <tr>
+                    <td class="cont-tabela">21/07/2024</td>
+                    <td class="cont-tabela">Pagamento</td>
+                    <td class="cont-tabela cont-tabela-red">-R$100,00</td>
+                </tr>
+                <tr>
+                    <td class="cont-tabela">22/07/2024</td>
+                    <td class="cont-tabela">Josapar</td>
+                    <td class="cont-tabela">R$60,00</td>
+                </tr>
+                
+            </tbody>
+        </table>
+        <p id="total-receber"></p>
+    </main>
+    <script>
+        function calcularTotal() {
+            let total = 0;
+            const linhas = document.querySelectorAll('#tabela-corpo tr');
+            linhas.forEach((linha) => {
+                const valorTexto = linha.querySelector('td:nth-child(3)').textContent;
+                const valorNumerico = parseFloat(valorTexto.replace('R$', '').replace(',', '.'));
+                total += valorNumerico;
+            });
+            document.getElementById('total-receber').textContent = `Total a receber: R$${total.toFixed(2).replace('.', ',')}`;
+        }
+        calcularTotal();
+    </script>
+</body>
+</html>

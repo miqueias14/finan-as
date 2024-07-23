@@ -35,7 +35,7 @@ main {
     color: red;
 }
 
-.total-receber-container {
+.total-receber {
     display: flex;
     justify-content: flex-end;
     align-items: center;
